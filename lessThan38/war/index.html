@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  <link rel="stylesheet" href="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  
+  <!-- Extra Codiqa features -->
+  <link rel="stylesheet" href="codiqa.ext.css">
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
+  <script src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+  <!-- Extra Codiqa features -->
+  <script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
+  
+	<script type="text/javascript">
+		$(document).ready(
+				function() {
+					$('#addForm').submit(
+							function() {					
+								data=new Object();
+								data.kg=$('#textinput1').val();
+																
+								$.ajax({
+									  url:'/_ah/api/weights/v1/result',
+									  type:"POST",
+									  data:JSON.stringify(data),
+									  contentType:"application/json",
+									  dataType:"json",
+									  success: function(){
+										  alert("ok");
+									  }
+								})
+								
+								return false;
+							});
+				});
+
+	</script>
+   
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Hi Alex
+        </h3>
+    </div>
+    <div data-role="content">
+        <form id="addForm" >
+            <div data-role="fieldcontain">
+                <label for="textinput1">
+                    Gewicht:
+                </label>
+                <input name="" id="textinput1" placeholder="" value="" type="text">
+            </div>
+			<input type="submit" value="Submit Button" />
+        </form>
+    </div>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            Footer
+        </h3>
+    </div>
+</div>
+</body>
+</html>
