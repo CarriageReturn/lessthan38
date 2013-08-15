@@ -7,17 +7,17 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <title></title>
   
-  <link rel="stylesheet" href="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+  <link rel="stylesheet" href="jquery.mobile-1.3.1.min.css">
   
   <!-- Extra Codiqa features -->
   <link rel="stylesheet" href="codiqa.ext.css">
   
   <!-- jQuery and jQuery Mobile -->
-  <script src="https://d10ajoocuyu32n.cloudfront.net/jquery-1.9.1.min.js"></script>
-  <script src="https://d10ajoocuyu32n.cloudfront.net/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+  <script src="jquery-1.9.1.min.js"></script>
+  <script src="jquery.mobile-1.3.1.min.js"></script>
 
   <!-- Extra Codiqa features -->
-  <script src="https://d10ajoocuyu32n.cloudfront.net/codiqa.ext.js"></script>
+  <script src="codiqa.ext.js"></script>
   
 	<script type="text/javascript">
 		$(document).ready(
@@ -47,26 +47,35 @@
 </head>
 <body>
 <!-- Home -->
-<div data-role="page" id="page1">
-    <div data-theme="a" data-role="header">
+<div data-role="page" id="add">
+    <div data-theme="b" data-role="header">
         <h3>
-            Hi Alex
+            Add entry
         </h3>
     </div>
     <div data-role="content">
         <form id="addForm" >
             <div data-role="fieldcontain">
                 <label for="textinput1">
-                    Gewicht:
+                    Weight:
                 </label>
                 <input name="" id="textinput1" placeholder="" value="" type="text">
             </div>
-			<input type="submit" value="Submit Button" />
+			<input type="submit" value="Add it!" />
+	        <div data-role="navbar" data-iconpos="top">
+	            <ul>
+	                <li>
+	                    <a href="list.html" data-transition="fade" data-theme="" data-icon="">
+	                        List entries
+	                    </a>
+	                </li>
+	            </ul>
+	        </div>
         </form>
     </div>
-    <div data-theme="a" data-role="footer" data-position="fixed">
+    <div data-theme="b" data-role="footer" data-position="fixed">
         <h3>
-            Footer
+           	
         </h3>
     </div>
 </div>
