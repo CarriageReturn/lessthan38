@@ -1,29 +1,42 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="jquery-1.10.2.js"></script>
-</head>
-<body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title></title>
+  
+  <link rel="stylesheet" href="jquery.mobile-1.3.1.min.css">
+  
+  <!-- Extra Codiqa features -->
+  <link rel="stylesheet" href="codiqa.ext.css">
+  
+  <!-- jQuery and jQuery Mobile -->
+  <script src="jquery-1.9.1.min.js"></script>
+  <script src="jquery.mobile-1.3.1.min.js"></script>
 
+  <!-- Extra Codiqa features -->
+  <script src="codiqa.ext.js"></script>
+  
 	<script type="text/javascript">
 		$(document).ready(
 				function() {
 					$('#addForm').submit(
-							function() {
-								
+							function() {					
 								data=new Object();
-								data.kg=$('#kg').val();
-								
+								data.kg=$('#textinput1').val();
+																
 								$.ajax({
 									  url:'/_ah/api/weights/v1/result',
 									  type:"POST",
 									  data:JSON.stringify(data),
 									  contentType:"application/json",
 									  dataType:"json",
-									  success: function(){
-										  alert("ok");
+									  success: function(data){
+										  alert(data.result);
 									  }
 								})
 								
@@ -32,14 +45,28 @@
 				});
 
 	</script>
-
-<div style="width:100%;text-align:center;position:relative;top:150px;">
-	Guten Morgen!<br><br>
-	<form id="addForm">
-		<label for="kg">Gewicht:</label> <input type="text" id="kg">
-		<input type="submit">
-	</form>
+   
+</head>
+<body>
+<!-- Home -->
+<div data-role="page" id="add">
+    <div data-theme="b" data-role="header">
+        <h3>
+            Add entry
+        </h3>
+    </div>
+    <div data-role="content">
+        <form id="addForm" >
+            <div data-role="fieldcontain">
+                <label for="textinput1">
+                    Weight:
+                </label>
+                <input name="" id="textinput1" placeholder="" value="" type="text">
+            </div>
+			<input type="submit" value="Add it!" />
+        </form>
+    </div>
+    <%@include file='footer.html'%>
 </div>
-
 </body>
 </html>

@@ -24,6 +24,10 @@ public class Weights {
 
 	@ApiMethod(name = "add", httpMethod = "post")
 	public Result insertWeight(WeightParam weight) {
+		
+		if (weight.getKg() == 0.0f ){
+			return new Result("Please enter valid weight.");
+		}
 
 		EntityManager em = EMFService.get().createEntityManager();
 		
@@ -33,16 +37,15 @@ public class Weights {
 
 		try {
 			em.persist(entity);
-		} finally {
+		} catch(Exception e){
+			System.out.println(e.getMessage());
+		}finally {
 			em.close();
 		}
 
 		System.out.println("Persisted. Kg: " + weight.getKg());
 
-		Result r = new Result();
-		r.setResult("OK");
-
-		return r;
+		return new Result("OK");
 	}
 
 	@SuppressWarnings("unchecked")

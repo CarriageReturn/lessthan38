@@ -20,5 +20,4 @@ public static ArrayList<Greeting> greetings = new ArrayList<Greeting>();
 	  
     return greetings.get(id);
   }
-
 }

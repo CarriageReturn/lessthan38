@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,13 +33,15 @@
 						  $.each(data.items, function(key, val) {
 						    items.push('<li id="' + key + '" data-theme="c">' + val.kg + ' am ' + val.date + '</li>');
 						  });
+						  
+						  $('#dataList').empty();
 
 						  $('#dataList').append(items.join(''));
 						  
 						    try {
 						        $('#dataList').listview('refresh');
 						    } catch(e) {
-						         $('#dataList').listview();
+						        $('#dataList').listview();
 						    }
 					});
 			});
@@ -53,11 +57,7 @@
         <ul data-role="listview" data-divider-theme="b" data-inset="true" id="dataList">
         </ul>
     </div>
-    <div data-theme="b" data-role="footer" data-position="fixed">
-        <h3>
-            
-        </h3>
-    </div>
+    <%@include file='footer.html'%>
 </div>
 </body>
 </html>
