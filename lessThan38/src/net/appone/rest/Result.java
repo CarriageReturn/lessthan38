@@ -16,5 +16,4 @@ public class Result {
 	public void setResult(String result) {
 		this.result = result;
 	}
-	
 }
